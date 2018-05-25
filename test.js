@@ -144,3 +144,11 @@ describe('github enterprise urls', function () {
     assert.deepEqual(['user', 'test1', ''], parsed)
   })
 })
+
+describe("github enterprise urls with nested namespace", function() {
+  it("parses https github enterprise url", function() {
+    var url = "https://git.mycompany.com/user/test/test1.git";
+    var parsed = parse(url);
+    assert.deepEqual(["user/test", "test1", ""], parsed);
+  });
+});
